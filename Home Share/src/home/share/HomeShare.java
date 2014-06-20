@@ -4,17 +4,30 @@
  */
 package home.share;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author toshiba
  */
 public class HomeShare {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("Hello World!!!");
+    private ArrayList<Transaction> transactionList;
+    private ArrayList<Member> memberList;
+    
+    public HomeShare (ArrayList<Transaction> tList, ArrayList<Member> mList)
+    {
+        this.transactionList = tList;
+        this.memberList = mList;
     }
+    
+    public void addMember (Member member){
+        memberList.add(member);
+    }
+    
+    public void addTransaction (Transaction transaction){
+        transactionList.add(transaction);
+    }
+    
+    
 }
