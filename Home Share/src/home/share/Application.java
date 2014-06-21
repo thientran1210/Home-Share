@@ -15,7 +15,7 @@ public class Application {
     public static void main (String args[]){
         
         Utilities uti = new Utilities();
-        HomeShare hs = new Home
+        HomeShare hs;
         uti.transactionInfo();
     }
 }

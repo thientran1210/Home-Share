@@ -25,8 +25,10 @@ public class HomeShare {
         memberList.add(member);
     }
     
-    public void addTransaction (Transaction transaction){
-        transactionList.add(transaction);
+    public void addTransaction (){
+        Utilities util = new Utilities();
+        
+        
     }
     
     

@@ -10,8 +10,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author Misa
@@ -19,8 +17,8 @@ import java.util.logging.Logger;
 public class Utilities {
     
     private Scanner sc = new Scanner(System.in);
-    public void transactionInfo(){
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+    public Transaction transactionInfo(){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String temp;
         double price;
         Date date;
