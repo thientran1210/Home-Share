@@ -17,14 +17,12 @@ public class Transaction {
     private Date date;
     private String description;
     private double price;
-    private ArrayList<Member> memberList;
 
-    public Transaction (String id, Date date, String description, double price, ArrayList<Member> mList){
+    public Transaction (String id, Date date, String description, double price){
         this.Id = id;
         this.date = date;
         this.description = description;
         this.price = price;
-        this.memberList = mList;
     }
     public double getPrice() {
         return price;
@@ -59,18 +57,5 @@ public class Transaction {
         this.description = description;
     }
 
-    public ArrayList<Member> getMemberList() {
-        return memberList;
-    }
-
-    public void setMemberList(ArrayList<Member> memberList) {
-        this.memberList = memberList;
-    }
-    
-    public double calculateFee (){
-        double fee = 0;
-        fee = this.price / this.memberList.size();
-        return fee;
-    }
     
 }

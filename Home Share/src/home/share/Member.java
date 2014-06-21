@@ -14,11 +14,15 @@ public class Member {
     private String name;
     private double debtMoney;
     private double ownMoney;
-
+    private ArrayList<Transaction> ownTransList;
+    private ArrayList<Transaction> debtTransList;
+    
     public Member(String name) {
         this.name = name;
         this.debtMoney = 0;
         this.ownMoney = 0;
+        ownTransList = new ArrayList<Transaction>();
+        debtTransList = new ArrayList<Transaction>();
     }
 
     public String getName() {
@@ -43,6 +47,17 @@ public class Member {
 
     public void setOwnMoney(double ownMoney) {
         this.ownMoney = ownMoney;
+    }
+    
+    public Transaction addOwnTransaction(){
+        Utilities util = new Utilities();
+        Transaction trans = util.transactionInfo();
+        this.ownTransList.add(trans);
+        return trans;
+    }
+    
+    public void addDebtTransaction(Transaction trans){
+        this.debtTransList.add(trans);
     }
     
     

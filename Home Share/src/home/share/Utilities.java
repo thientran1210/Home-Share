@@ -8,6 +8,7 @@ package home.share;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Date;
 /**
@@ -21,7 +22,7 @@ public class Utilities {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String temp;
         double price;
-        Date date;
+        Date date = new Date();
         System.out.print("Date of the transaction(DD/MM/YYYY): ");
         temp = sc.next();
         try {
@@ -30,10 +31,52 @@ public class Utilities {
             ex.printStackTrace();
         }
         System.out.print("Description: ");
-        temp = sc.next();
+        if (sc.hasNextLine())
+            sc.next();
+        temp = sc.nextLine();
         System.out.print("Price: ");
         price = sc.nextDouble();
         
+        Transaction newTrans = new Transaction ("0001",date,temp,price);
+        return newTrans;
+        
+    }
+    
+    public ArrayList<Integer> selectMember(ArrayList<Member> memberList){
+        
+        String line;
+        String[] ele;
+        ArrayList<Integer> members = new ArrayList<Integer>();
+        System.out.println("Please select who involve in this transaction: ");
+        for(int i = 0;i<memberList.size();i++){
+            System.out.print(i+1+":"+memberList.get(i).getName()+" ");
+        }
+        System.out.println();
+        if (sc.hasNextLine())
+            sc.nextLine();
+        line = sc.nextLine();
+        ele = line.split(" ");
+
+        for(String s:ele){
+            members.add(Integer.parseInt(s));
+        }
+        
+        return members;
+    }
+    
+    public Member searchMember(ArrayList<Member> memberList){
+        String name;
+        Member me = null;
+        System.out.print("Owner's name: ");
+        name = sc.next();
+        for (Member m:memberList){
+            if(m.getName().equals(name)){
+                me = m;
+                break;
+            }
+        }
+        
+        return me;
         
     }
 }

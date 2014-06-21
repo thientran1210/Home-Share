@@ -12,12 +12,11 @@ import java.util.ArrayList;
  */
 public class HomeShare {
 
-    private ArrayList<Transaction> transactionList;
     private ArrayList<Member> memberList;
+    Utilities util = new Utilities();
     
-    public HomeShare (ArrayList<Transaction> tList, ArrayList<Member> mList)
+    public HomeShare (ArrayList<Member> mList)
     {
-        this.transactionList = tList;
         this.memberList = mList;
     }
     
@@ -26,7 +25,16 @@ public class HomeShare {
     }
     
     public void addTransaction (){
-        Utilities util = new Utilities();
+        Member m = null;
+        ArrayList<Integer> debtMemberIndex = null;
+        Transaction trans = null;
+        m = util.searchMember(this.memberList);
+        trans = m.addOwnTransaction();
+        debtMemberIndex = util.selectMember(memberList);
+        for (int i :debtMemberIndex){
+            this.memberList.get(i).addDebtTransaction(trans);
+        }
+        
         
         
     }

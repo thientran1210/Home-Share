@@ -6,6 +6,8 @@
 
 package home.share;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Misa
@@ -14,8 +16,13 @@ public class Application {
     
     public static void main (String args[]){
         
-        Utilities uti = new Utilities();
-        HomeShare hs;
-        uti.transactionInfo();
+        ArrayList<Member> memberList = new ArrayList<Member>();
+        memberList.add(new Member("Thien"));
+        memberList.add(new Member("Quoc"));
+        memberList.add(new Member("Di"));
+        memberList.add(new Member("Phong"));
+        memberList.add(new Member("Misa"));
+        HomeShare hs = new HomeShare(memberList);
+        hs.addTransaction();
     }
 }
