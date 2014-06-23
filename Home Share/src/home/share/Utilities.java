@@ -42,13 +42,14 @@ public class Utilities {
         
     }
     
-    public ArrayList<Integer> selectMember(ArrayList<Member> memberList){
+    public ArrayList<Integer> selectMember(ArrayList<Member> memberList, int owner){
         
         String line;
         String[] ele;
         ArrayList<Integer> members = new ArrayList<Integer>();
         System.out.println("Please select who involve in this transaction: ");
         for(int i = 0;i<memberList.size();i++){
+            if(i != owner)
             System.out.print(i+1+":"+memberList.get(i).getName()+" ");
         }
         System.out.println();
@@ -64,14 +65,14 @@ public class Utilities {
         return members;
     }
     
-    public Member searchMember(ArrayList<Member> memberList){
+    public int searchMember(ArrayList<Member> memberList){
         String name;
-        Member me = null;
+        int me = 0;
         System.out.print("Owner's name: ");
         name = sc.next();
         for (Member m:memberList){
             if(m.getName().equals(name)){
-                me = m;
+                me = memberList.indexOf(m);
                 break;
             }
         }
